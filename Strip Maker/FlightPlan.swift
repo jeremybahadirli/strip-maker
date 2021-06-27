@@ -10,60 +10,37 @@ import Foundation
 struct FlightPlan {
     
     var splitString: [String.SubSequence]
-    var cid: String
+    let cid: String
     
-    var aid: String {
-        if splitString[1] == "-" {
-            return ""
-        } else {
-            return String(splitString[1])
+    init(_ splitString: [String.SubSequence]) {
+        self.splitString = splitString
+        cid = String(Int.random(in: 100...999))
+        
+        for i in 0..<self.splitString.count {
+            if self.splitString[i] == "-" {
+                self.splitString[i] = ""
+            }
         }
     }
     
-    var type: String {
-        if splitString[2] == "-" {
-            return ""
-        } else {
-            return String(splitString[2])
-        }
-    }
+    var aid:      String { String(splitString[1])  }
+    var type:     String { String(splitString[2])  }
+    var code:     String { String(splitString[3])  }
+    var prev:     String { String(splitString[5])  }
+    var prevTime: String { String(splitString[6])  }
+    var next:     String { String(splitString[9])  }
+    var nextTime: String { String(splitString[10]) }
     
-    var code: String {
-        if splitString[3] == "-" {
-            return ""
-        } else {
-            return String(splitString[3])
-        }
-    }
-    
-    var tas: String {
-        if splitString[4] == "-" {
-            return ""
-        } else {
+    var tas:  String {
+        if splitString[4] != "" {
             return "T" + String(splitString[4])
-        }
-    }
-    
-    var prev: String {
-        if splitString[5] == "-" {
-            return ""
         } else {
-            return String(splitString[5])
-        }
-    }
-    
-    var prevTime: String {
-        if splitString[6] == "-" {
             return ""
-        } else {
-            return String(splitString[6])
         }
     }
     
     var posted: String {
-        if splitString[7] == "-" {
-            return ""
-        } else if splitString[8].contains("P") {
+        if splitString[8].contains("P") {
             return splitString[7] + " " + splitString[8]
         } else {
             return String(splitString[7])
@@ -71,7 +48,7 @@ struct FlightPlan {
     }
     
     var postedTimeMin: String {
-        if (splitString[8] == "-" || splitString[8].contains("P")) {
+        if splitString[8].contains("P") {
             return ""
         } else {
             return String(splitString[8].suffix(2))
@@ -79,31 +56,15 @@ struct FlightPlan {
     }
     
     var postedTimeHour: String {
-        if (splitString[8] == "-" || splitString[8].contains("P")) {
+        if splitString[8].contains("P") {
             return ""
         } else {
             return String(splitString[8].dropLast(2).suffix(2))
         }
     }
     
-    var next: String {
-        if splitString[9] == "-" {
-            return ""
-        } else {
-            return String(splitString[9])
-        }
-    }
-    
-    var nextTime: String {
-        if splitString[10] == "-" {
-            return ""
-        } else {
-            return String(splitString[10])
-        }
-    }
-    
     var alt: String {
-        if (splitString[11] == "-" || splitString[8].contains("P")) {
+        if splitString[8].contains("P") {
             return ""
         } else {
             return String(splitString[11])
@@ -111,20 +72,16 @@ struct FlightPlan {
     }
     
     var reqAlt: String {
-        if (splitString[11] == "-" || !splitString[8].contains("P")) {
-            return ""
-        } else {
+        if splitString[8].contains("P") {
             return String(splitString[11])
+        } else {
+            return ""
         }
     }
     
     var route: String {
-        if splitString[12] == "-" {
-            return ""
-        } else {
-            return String(splitString[12]
-                            .replacingOccurrences(of: "..", with: " ")
-                            .replacingOccurrences(of: ".",  with: " "))
-        }
+        String(splitString[12]
+                .replacingOccurrences(of: "..", with: " ")
+                .replacingOccurrences(of: ".",  with: " "))
     }
 }

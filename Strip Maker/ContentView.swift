@@ -26,7 +26,7 @@ struct ContentView: View {
                 Button(action: {
                     let splitString: [String.SubSequence] = flightPlanString.split(separator: " ")
                     if (splitString.count == 13 && splitString[0] == "FP") {
-                        strips.append(Strip(flightPlan: FlightPlan(splitString: splitString, cid: String(Int.random(in: 100...999)))))
+                        strips.append(Strip(FlightPlan(splitString)))
                     }
                 }, label: {
                     ZStack {

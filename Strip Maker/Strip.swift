@@ -9,8 +9,12 @@ import SwiftUI
 
 struct Strip: View, Identifiable {
     
-    var flightPlan: FlightPlan
-    var id = UUID()
+    let flightPlan: FlightPlan
+    let id = UUID()
+    
+    init(_ flightPlan: FlightPlan) {
+        self.flightPlan = flightPlan
+    }
     
     var body: some View {
         
