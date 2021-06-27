@@ -24,7 +24,7 @@ struct ContentView: View {
             
             HStack(spacing: 90){
                 Button(action: {
-                    var splitString: [String.SubSequence] { flightPlanString.split(separator: " ") }
+                    let splitString: [String.SubSequence] = flightPlanString.split(separator: " ")
                     if (splitString.count == 13 && splitString[0] == "FP") {
                         strips.append(Strip(flightPlan: FlightPlan(splitString: splitString, cid: String(Int.random(in: 100...999)))))
                     }

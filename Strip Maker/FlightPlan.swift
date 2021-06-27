@@ -135,6 +135,4 @@ struct FlightPlan {
             return ""
         }
     }
-    
-    var rmk: String { String(splitString[13]) }
 }
