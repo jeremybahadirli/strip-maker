@@ -128,7 +128,9 @@ struct FlightPlan {
     
     var route: String {
         if !(splitString[12] == "-") {
-            return String(splitString[12])
+            return String(splitString[12]
+                            .replacingOccurrences(of: "..", with: " ")
+                            .replacingOccurrences(of: ".",  with: " "))
         } else {
             return ""
         }
