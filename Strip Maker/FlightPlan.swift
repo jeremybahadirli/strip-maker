@@ -10,16 +10,19 @@ import Foundation
 struct FlightPlan {
     
     var splitString: [String.SubSequence]
-    let cid: String
+    let cid = String(Int.random(in: 100...999))
     
-    init(_ splitString: [String.SubSequence]) {
-        self.splitString = splitString
-        cid = String(Int.random(in: 100...999))
-        
-        for i in 0..<self.splitString.count {
-            if self.splitString[i] == "-" {
-                self.splitString[i] = ""
+    init?(_ string: String) {
+        splitString = string.split(separator: " ")
+        if (splitString.count == 13 && splitString[0] == "FP") {
+                        
+            for i in 0..<self.splitString.count {
+                if self.splitString[i] == "-" {
+                    self.splitString[i] = ""
+                }
             }
+        } else {
+            return nil
         }
     }
     

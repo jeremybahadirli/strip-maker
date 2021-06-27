@@ -24,9 +24,8 @@ struct ContentView: View {
             
             HStack(spacing: 90){
                 Button(action: {
-                    let splitString: [String.SubSequence] = flightPlanString.split(separator: " ")
-                    if (splitString.count == 13 && splitString[0] == "FP") {
-                        strips.append(Strip(FlightPlan(splitString)))
+                    if let flightPlan = FlightPlan(flightPlanString) {
+                        strips.append(Strip(flightPlan))
                     }
                 }, label: {
                     ZStack {
