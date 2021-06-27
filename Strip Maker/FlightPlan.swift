@@ -8,10 +8,9 @@
 import Foundation
 
 struct FlightPlan {
-    
+
     var splitString: [String.SubSequence]
-    let cid = String(Int.random(in: 100...999))
-    
+
     init?(_ string: String) {
         splitString = string.split(separator: " ")
         if (splitString.count == 13 && splitString[0] == "FP") {
@@ -25,6 +24,8 @@ struct FlightPlan {
             return nil
         }
     }
+    
+    let cid = String(Int.random(in: 100...999))
     
     var aid:      String { String(splitString[1])  }
     var type:     String { String(splitString[2])  }
