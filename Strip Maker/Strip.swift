@@ -26,7 +26,7 @@ struct Strip: View, Identifiable {
                         Text(flightPlan.tas)
                         Spacer()
                         Text(flightPlan.cid)
-                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            .font(.title)
                     }
                     Spacer()
                 }
@@ -103,7 +103,7 @@ struct Strip: View, Identifiable {
                 HStack {
                     VStack(alignment: .leading) {
                         Text(flightPlan.alt)
-                            .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                            .font(.title)
                         Spacer()
                     }
                     Spacer()

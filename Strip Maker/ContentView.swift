@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import PencilKit
 
 struct ContentView: View {
     
@@ -40,7 +39,7 @@ struct ContentView: View {
                             .padding(.vertical, 8)
                     }
                 })
-                .fixedSize(horizontal: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
+                .fixedSize(horizontal: true, vertical: true)
                 
                 Button(action: {
                     strips = [Strip]()
@@ -56,15 +55,12 @@ struct ContentView: View {
                             .foregroundColor(.red)
                     }
                 })
-                .fixedSize(horizontal: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/, vertical: /*@START_MENU_TOKEN@*/true/*@END_MENU_TOKEN@*/)
-                
-                
+                .fixedSize(horizontal: true, vertical: true)
             }
             
             List(strips, id: \.id) { strip in
                 strip
             }
-            
         }
     }
 }
