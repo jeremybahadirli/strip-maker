@@ -31,7 +31,7 @@ struct Strip: View, Identifiable {
                     Spacer()
                 }
                 .padding(8)
-                .frame(width: strip.size.width * 0.15)
+                .frame(width: strip.size.width * 0.14)
                 .border(Color(UIColor(named: "CustomColor")!))
                 
                 /* * * * * COLUMN 2 * * * */
@@ -44,8 +44,9 @@ struct Strip: View, Identifiable {
                     }
                     Spacer()
                 }
-                .padding(8)
-                .frame(width: strip.size.width * 0.09)
+                .padding(.leading, 8)
+                .padding(.vertical, 8)
+                .frame(width: strip.size.width * 0.1)
                 .border(Color(UIColor(named: "CustomColor")!))
                 
                 /* * * * * COLUMN 3 * * * */
@@ -66,8 +67,8 @@ struct Strip: View, Identifiable {
                                 Spacer()
                             }
                         }
-                        .padding(.top, 8)
                         .padding(.leading, 8)
+                        .padding(.top, 8)
                         .frame(height: fix.size.height * 0.55)
                         .border(Color(UIColor(named: "CustomColor")!))
                         .font(.title)
@@ -108,7 +109,7 @@ struct Strip: View, Identifiable {
                     Spacer()
                 }
                 .padding(8)
-                .frame(width: strip.size.width * 0.12)
+                .frame(width: strip.size.width * 0.13)
                 .border(Color(UIColor(named: "CustomColor")!))
                 
                 /* * * * * COLUMN 5 * * * */
@@ -122,8 +123,9 @@ struct Strip: View, Identifiable {
                     }
                     Spacer()
                 }
-                .padding(8)
-                .frame(width: strip.size.width * 0.09)
+                .padding(.leading, 8)
+                .padding(.vertical, 8)
+                .frame(width: strip.size.width * 0.1)
                 .border(Color(UIColor(named: "CustomColor")!))
                 
                 /* * * * * COLUMN 6 * * * */

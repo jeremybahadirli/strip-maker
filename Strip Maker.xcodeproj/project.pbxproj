@@ -58,8 +58,8 @@
 			children = (
 				3FC6B4B32687B0640002970C /* Strip_MakerApp.swift */,
 				3FC6B4B52687B0640002970C /* ContentView.swift */,
-				3F8DE9F326881E14006D074C /* FlightPlan.swift */,
 				3FC6B4C42687B1010002970C /* Strip.swift */,
+				3F8DE9F326881E14006D074C /* FlightPlan.swift */,
 				3FC6B4B72687B0640002970C /* Assets.xcassets */,
 				3FC6B4BC2687B0640002970C /* Info.plist */,
 				3FC6B4B92687B0640002970C /* Preview Content */,
@@ -280,7 +280,7 @@
 				DEVELOPMENT_TEAM = Q4P76HS7SH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Strip Maker/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +302,7 @@
 				DEVELOPMENT_TEAM = Q4P76HS7SH;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Strip Maker/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

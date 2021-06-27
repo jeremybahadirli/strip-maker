@@ -10,6 +10,7 @@ import Foundation
 struct FlightPlan {
     
     var splitString: [String.SubSequence]
+    var cid: String
     
     var aid:  String {
         if !(splitString[1] == "-") {
@@ -60,7 +61,9 @@ struct FlightPlan {
     }
     
     var posted: String {
-        if splitString[8].contains("P") {
+        if (splitString[7] == "-") {
+            return ""
+        } else if splitString[8].contains("P") {
             return splitString[7] + " " + splitString[8]
         } else {
             return String(splitString[7])
@@ -68,7 +71,9 @@ struct FlightPlan {
     }
     
     var postedTimeMin: String {
-        if !splitString[8].contains("P") {
+        if (splitString[8] == "-") {
+            return ""
+        } else if !splitString[8].contains("P") {
             return String(splitString[8].suffix(2))
         } else {
             return ""
@@ -76,7 +81,9 @@ struct FlightPlan {
     }
     
     var postedTimeHour: String {
-        if !splitString[8].contains("P") {
+        if (splitString[8] == "-") {
+            return ""
+        } else if !splitString[8].contains("P") {
             return String(splitString[8].dropLast(2).suffix(2))
         } else {
             return ""
@@ -100,7 +107,9 @@ struct FlightPlan {
     }
     
     var alt: String {
-        if !splitString[8].contains("P") {
+        if (splitString[11] == "-") {
+            return ""
+        } else if !splitString[8].contains("P") {
             return String(splitString[11])
         } else {
             return ""
@@ -108,14 +117,22 @@ struct FlightPlan {
     }
     
     var reqAlt: String {
-        if splitString[8].contains("P") {
+        if (splitString[11] == "-") {
+            return ""
+        } else if splitString[8].contains("P") {
             return String(splitString[11])
         } else {
             return ""
         }
     }
     
-    var route: String { String(splitString[12]) }
-    var rmk:   String { String(splitString[13]) }
-    var cid:   String { String(Int.random(in: 100...999))}
+    var route: String {
+        if !(splitString[12] == "-") {
+            return String(splitString[12])
+        } else {
+            return ""
+        }
+    }
+    
+    var rmk: String { String(splitString[13]) }
 }
