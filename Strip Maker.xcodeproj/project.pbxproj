@@ -7,19 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F8DE9F426881E14006D074C /* FlightPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F8DE9F326881E14006D074C /* FlightPlan.swift */; };
 		3FC6B4B42687B0640002970C /* Strip_MakerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC6B4B32687B0640002970C /* Strip_MakerApp.swift */; };
 		3FC6B4B62687B0640002970C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC6B4B52687B0640002970C /* ContentView.swift */; };
 		3FC6B4B82687B0640002970C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FC6B4B72687B0640002970C /* Assets.xcassets */; };
 		3FC6B4BB2687B0640002970C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FC6B4BA2687B0640002970C /* Preview Assets.xcassets */; };
+		3FC6B4C52687B1010002970C /* Strip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC6B4C42687B1010002970C /* Strip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3F8DE9F326881E14006D074C /* FlightPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightPlan.swift; sourceTree = "<group>"; };
 		3FC6B4B02687B0640002970C /* Strip Maker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Strip Maker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC6B4B32687B0640002970C /* Strip_MakerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strip_MakerApp.swift; sourceTree = "<group>"; };
 		3FC6B4B52687B0640002970C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		3FC6B4B72687B0640002970C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FC6B4BA2687B0640002970C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3FC6B4BC2687B0640002970C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FC6B4C42687B1010002970C /* Strip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strip.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,8 @@
 			children = (
 				3FC6B4B32687B0640002970C /* Strip_MakerApp.swift */,
 				3FC6B4B52687B0640002970C /* ContentView.swift */,
+				3F8DE9F326881E14006D074C /* FlightPlan.swift */,
+				3FC6B4C42687B1010002970C /* Strip.swift */,
 				3FC6B4B72687B0640002970C /* Assets.xcassets */,
 				3FC6B4BC2687B0640002970C /* Info.plist */,
 				3FC6B4B92687B0640002970C /* Preview Content */,
@@ -138,8 +144,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F8DE9F426881E14006D074C /* FlightPlan.swift in Sources */,
 				3FC6B4B62687B0640002970C /* ContentView.swift in Sources */,
 				3FC6B4B42687B0640002970C /* Strip_MakerApp.swift in Sources */,
+				3FC6B4C52687B1010002970C /* Strip.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
