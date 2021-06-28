@@ -34,7 +34,6 @@ struct ContentView: View {
                             .foregroundColor(.blue)
                             .frame(width: 120)
                         Text("Create Strip")
-                            .padding(.horizontal, 8)
                             .padding(.vertical, 8)
                     }
                 })
@@ -49,7 +48,6 @@ struct ContentView: View {
                             .foregroundColor(.red)
                             .frame(width: 120)
                         Text("Delete All")
-                            .padding(.horizontal, 8)
                             .padding(.vertical, 8)
                             .foregroundColor(.red)
                     }

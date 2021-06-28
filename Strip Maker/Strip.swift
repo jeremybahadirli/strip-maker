@@ -163,3 +163,10 @@ struct Strip: View, Identifiable {
         .aspectRatio(4.9, contentMode: .fit)
     }
 }
+
+struct Strip_Previews: PreviewProvider {
+    static var previews: some View {
+        Strip(FlightPlan("FP N2145T C172/G 1200 120 MLU 1150 JAN E1201 MEI 1220 110 KSHV..MLU..JAN..MEI..KMEI")!)
+            .previewDevice("iPad Pro (9.7-inch)")
+    }
+}

@@ -15,7 +15,7 @@ struct FlightPlan {
         splitString = string.split(separator: " ")
         if (splitString.count == 13 && splitString[0] == "FP") {
                         
-            for i in 0..<self.splitString.count {
+            for i in 1..<self.splitString.count {
                 if self.splitString[i] == "-" {
                     self.splitString[i] = ""
                 }
@@ -25,7 +25,7 @@ struct FlightPlan {
         }
     }
     
-    let cid = String(Int.random(in: 100...999))
+    let cid = String(format: "%03d", Int.random(in: 0...999))
     
     var aid:      String { String(splitString[1])  }
     var type:     String { String(splitString[2])  }
