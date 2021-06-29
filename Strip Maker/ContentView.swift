@@ -16,7 +16,7 @@ struct ContentView: View {
         
         VStack {
             TextField("Enter flight plan message...", text: $flightPlanString)
-                .textFieldStyle(RoundedBorderTextFieldStyle.init())
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.allCharacters)
                 .disableAutocorrection(true)
                 .padding(.top, 20)
