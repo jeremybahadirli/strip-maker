@@ -47,6 +47,15 @@ struct FlightPlan {
         
         isProposal = splitString[8].contains("P")
         
+        prev     = String(splitString[5])
+        prevTime = String(splitString[6])
+        next     = String(splitString[9])
+        nextTime = String(splitString[10])
+        route    = String(splitString[12]
+                            .replacingOccurrences(of: "..",  with: " ")
+                            .replacingOccurrences(of: ".",   with: " ")
+                            .replacingOccurrences(of: " / ", with: "./."))
+
         //MARK: AID
         
         if splitString[1] == "*" {
@@ -131,16 +140,5 @@ struct FlightPlan {
         } else if String(route.split(separator: " ").last!.suffix(3)) == posted.suffix(3) {
             arrow = "↓"
         }
-
-        //MARK: REST
-        
-        prev     = String(splitString[5])
-        prevTime = String(splitString[6])
-        next     = String(splitString[9])
-        nextTime = String(splitString[10])
-        route    = String(splitString[12]
-                            .replacingOccurrences(of: "..",  with: " ")
-                            .replacingOccurrences(of: ".",   with: " ")
-                            .replacingOccurrences(of: " / ", with: "./."))
     }
 }

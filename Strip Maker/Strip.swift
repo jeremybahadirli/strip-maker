@@ -67,6 +67,7 @@ struct Strip: View, Identifiable {
                                     Text(flightPlan.postedTimeHour)
                                     Spacer()
                                 }
+                                Spacer()
                             }
                             
                             HStack {
@@ -77,7 +78,8 @@ struct Strip: View, Identifiable {
                                 }
                             }
                         }
-                        .padding(8)
+                        .padding(.horizontal, 8)
+                        .padding(.top, 8)
                         .frame(height: fix.size.height * 0.55)
                         .border(Color(UIColor(named: "CustomColor")!))
                         .font(.title)
@@ -171,7 +173,7 @@ struct Strip: View, Identifiable {
 
 struct Strip_Previews: PreviewProvider {
     static var previews: some View {
-        Strip(FlightPlan("FP * * * * - - 0M8 P1200 - - * KSHV..MLU..JAN..MEI..0M8")!)
+        Strip(FlightPlan("FP * * * * - - 0M8 E1200 - - * KSHV..MLU..JAN..MEI..0M8")!)
             .previewDevice("iPad Pro (9.7-inch)")
     }
 }
