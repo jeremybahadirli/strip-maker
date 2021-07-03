@@ -22,7 +22,55 @@ struct ContentView: View {
                 .padding(.top, 20)
                 .padding()
             
-            HStack(spacing: 90){
+            HStack {
+                
+                Spacer()
+                
+                Button(action: {
+                    flightPlanString.append("FP ")
+                }, label: {
+                    ZStack {
+                        RoundedRectangle(cornerSize: CGSize(width: 12, height: 12))
+                            .opacity(0.2)
+                            .frame(width: 40)
+                        Text("FP")
+                            .padding(.vertical, 8)
+                    }
+                    .foregroundColor(Color(UIColor(named: "CustomColor")!))
+                    
+                })
+                .fixedSize(horizontal: true, vertical: true)
+                
+                Button(action: {
+                    flightPlanString.append("* ")
+                }, label: {
+                    ZStack {
+                        RoundedRectangle(cornerSize: CGSize(width: 12, height: 12))
+                            .opacity(0.2)
+                            .frame(width: 40)
+                        Text("*")
+                            .padding(.vertical, 8)
+                    }
+                    .foregroundColor(Color(UIColor(named: "CustomColor")!))
+                })
+                .fixedSize(horizontal: true, vertical: true)
+                
+                Button(action: {
+                    flightPlanString.append("- ")
+                }, label: {
+                    ZStack {
+                        RoundedRectangle(cornerSize: CGSize(width: 12, height: 12))
+                            .opacity(0.2)
+                            .frame(width: 40)
+                        Text("–")
+                            .padding(.vertical, 8)
+                    }
+                    .foregroundColor(Color(UIColor(named: "CustomColor")!))
+                })
+                .fixedSize(horizontal: true, vertical: true)
+                
+                Spacer()
+                
                 Button(action: {
                     if let flightPlan = FlightPlan(flightPlanString) {
                         strips.append(Strip(flightPlan))
@@ -31,13 +79,15 @@ struct ContentView: View {
                     ZStack {
                         RoundedRectangle(cornerSize: CGSize(width: 12, height: 12))
                             .opacity(0.2)
-                            .foregroundColor(.blue)
                             .frame(width: 120)
                         Text("Create Strip")
                             .padding(.vertical, 8)
                     }
+                    .foregroundColor(.blue)
                 })
                 .fixedSize(horizontal: true, vertical: true)
+                
+                Spacer()
                 
                 Button(action: {
                     strips = [Strip]()
@@ -45,16 +95,16 @@ struct ContentView: View {
                     ZStack {
                         RoundedRectangle(cornerSize: CGSize(width: 12, height: 12))
                             .opacity(0.2)
-                            .foregroundColor(.red)
                             .frame(width: 120)
                         Text("Delete All")
                             .padding(.vertical, 8)
-                            .foregroundColor(.red)
                     }
+                    .foregroundColor(.red)
                 })
                 .fixedSize(horizontal: true, vertical: true)
+                
+                Spacer()
             }
-            
             List(strips, id: \.id) { strip in
                 strip
             }
