@@ -53,7 +53,7 @@ struct Strip: View, Identifiable {
                 .frame(width: strip.size.width * 0.1)
                 .border(Color(UIColor(named: "CustomColor")!))
                 
-                //MARK: COLUMN 1
+                //MARK: COLUMN 3
                 
                 GeometryReader { fix in
                     VStack(spacing: 0) {
