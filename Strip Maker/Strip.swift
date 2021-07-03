@@ -21,7 +21,7 @@ struct Strip: View, Identifiable {
         GeometryReader { strip in
             HStack(spacing: 0) {
                 
-                /* * * * * COLUMN 1 * * * */
+                //MARK: COLUMN 1
                 
                 HStack {
                     VStack(alignment: .leading) {
@@ -38,7 +38,7 @@ struct Strip: View, Identifiable {
                 .frame(width: strip.size.width * 0.14)
                 .border(Color(UIColor(named: "CustomColor")!))
                 
-                /* * * * * COLUMN 2 * * * */
+                //MARK: COLUMN 2
                 
                 HStack {
                     VStack(alignment: .leading) {
@@ -53,12 +53,12 @@ struct Strip: View, Identifiable {
                 .frame(width: strip.size.width * 0.1)
                 .border(Color(UIColor(named: "CustomColor")!))
                 
-                /* * * * * COLUMN 3 * * * */
+                //MARK: COLUMN 1
                 
                 GeometryReader { fix in
                     VStack(spacing: 0) {
                         
-                        /* * * * * ROW 1 * * * */
+                        //MARK: ROW 1
                         
                         HStack {
                             VStack(alignment: .leading) {
@@ -77,7 +77,7 @@ struct Strip: View, Identifiable {
                         .border(Color(UIColor(named: "CustomColor")!))
                         .font(.title)
                         
-                        /* * * * * ROW 2 * * * */
+                        //MARK: ROW 2
                         
                         HStack(spacing: 0) {
                             Rectangle()
@@ -89,7 +89,7 @@ struct Strip: View, Identifiable {
                                 .border(Color(UIColor(named: "CustomColor")!))
                         }
                         
-                        /* * * * * ROW 3 * * * */
+                        //MARK: ROW 3
                         
                         HStack {
                             Text(flightPlan.posted)
@@ -102,7 +102,7 @@ struct Strip: View, Identifiable {
                 }
                 .frame(width: strip.size.width * 0.16)
                 
-                /* * * * * COLUMN 4 * * * */
+                //MARK: COLUMN 4
                 
                 HStack {
                     VStack(alignment: .leading) {
@@ -116,7 +116,7 @@ struct Strip: View, Identifiable {
                 .frame(width: strip.size.width * 0.13)
                 .border(Color(UIColor(named: "CustomColor")!))
                 
-                /* * * * * COLUMN 5 * * * */
+                //MARK: COLUMN 5
                 
                 HStack {
                     VStack(alignment: .leading) {
@@ -132,7 +132,7 @@ struct Strip: View, Identifiable {
                 .frame(width: strip.size.width * 0.1)
                 .border(Color(UIColor(named: "CustomColor")!))
                 
-                /* * * * * COLUMN 6 * * * */
+                //MARK: COLUMN 6
                 
                 HStack {
                     VStack(alignment: .leading) {
@@ -145,7 +145,7 @@ struct Strip: View, Identifiable {
                 .frame(width: strip.size.width * 0.27)
                 .border(Color(UIColor(named: "CustomColor")!))
                 
-                /* * * * * COLUMN 7 * * * */
+                //MARK: COLUMN 7
                 
                 HStack {
                     VStack(alignment: .leading) {
@@ -168,5 +168,7 @@ struct Strip_Previews: PreviewProvider {
     static var previews: some View {
         Strip(FlightPlan("FP * * * * - - 0M8 E1200 - - * KSHV..MLU..JAN..MEI..KMEI")!)
             .previewDevice("iPad Pro (9.7-inch)")
+        
+        
     }
 }
