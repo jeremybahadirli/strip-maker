@@ -9,25 +9,29 @@ import Foundation
 
 struct FlightPlan {
     
-    var splitString: [String.SubSequence]
-
-    let cid = String(format: "%03d", Int.random(in: 0...999))
-
-    var aid:            String = ""
-    var type:           String = ""
-    var code:           String = ""
-    var tas:            String = ""
-    var prev:           String = ""
-    var prevTime:       String = ""
-    var next:           String = ""
-    var nextTime:       String = ""
-    var posted:         String = ""
-    var postedTimeMin:  String = ""
-    var postedTimeHour: String = ""
-    var alt:            String = ""
-    var reqAlt:         String = ""
-    var route:          String = ""
-
+    var splitString:   [String.SubSequence]
+    
+    var isProposal     = false
+    
+    var aid            = ""
+    var type           = ""
+    var code           = ""
+    var tas            = ""
+    var prev           = ""
+    var prevTime       = ""
+    var next           = ""
+    var nextTime       = ""
+    var posted         = ""
+    var postedTimeMin  = ""
+    var postedTimeHour = ""
+    var alt            = ""
+    var reqAlt         = ""
+    var route          = ""
+    var arrow          = ""
+    
+    let cid            = String(format: "%03d", Int.random(in: 0...999))
+    
+    
     init?(_ string: String) {
         splitString = string.split(separator: " ")
         if (splitString.count == 13 && splitString[0] == "FP") {
@@ -41,6 +45,8 @@ struct FlightPlan {
             return nil
         }
         
+        isProposal = splitString[8].contains("P")
+        
         //MARK: AID
         
         if splitString[1] == "*" {
@@ -53,9 +59,13 @@ struct FlightPlan {
         }
         
         //MARK: TYPE
-
+        
         if splitString[2] == "*" {
-            let types    = ["C172", "C182", "PA32", "PA46", "SR22", "BE36"]
+            let types    = ["C172", "C182", "C210", "PA32", "BE36", "PA24", "SR22", "PA46",
+                            "PA32", "BE58", "C421", "PA31",
+                            "C208", "PC12",
+                            "BE9T", "B190", "SW4", "B350", "C441",
+                            "DH8", "SF34", "DH8D"]
             let suffixes = ["/A", "/I", "/G"]
             type = types.randomElement()! + suffixes.randomElement()!
         } else {
@@ -63,7 +73,7 @@ struct FlightPlan {
         }
         
         //MARK: CODE
-
+        
         if splitString[3] == "*" {
             let digits = "01234567"
             code = String((0..<4).map{ _ in digits.randomElement()! })
@@ -77,65 +87,60 @@ struct FlightPlan {
             tas = "T" + String(Int.random(in: 90/5...450/5) * 5)
         } else if splitString[4] != "" {
             tas = "T" + String(splitString[4])
-        } else {
-            tas = ""
         }
         
-        //MARK: PREV PREVTIME NEXT NEXTTIME
-        
-        prev =     String(splitString[5])
-        prevTime = String(splitString[6])
-        next =     String(splitString[9])
-        nextTime = String(splitString[10])
-
         //MARK: POSTED
         
-        if splitString[8].contains("P") {
+        if isProposal {
             posted = splitString[7] + " " + splitString[8]
         } else {
             posted = String(splitString[7])
         }
         
-        //MARK: POSTEDTIMEMIN
+        //MARK: POSTEDTIME
         
-        if splitString[8].contains("P") {
-            postedTimeMin = ""
-        } else {
-            postedTimeMin = String(splitString[8].suffix(2))
-        }
-        
-        //MARK: POSTEDTIMEHOUR
-
-        if splitString[8].contains("P") {
-            postedTimeHour = ""
-        } else {
+        if !isProposal {
+            postedTimeMin  = String(splitString[8].suffix(2))
             postedTimeHour = String(splitString[8].dropLast(2).suffix(2))
         }
         
         //MARK: ALT
         
-        if splitString[8].contains("P") {
-            alt = ""
-        } else if splitString[11] == "*" {
-            alt = String(Int.random(in: 50/10...230/10) * 10)
-        } else {
-            alt = String(splitString[11])
+        if !isProposal {
+            if splitString[11] == "*" {
+                alt = String(Int.random(in: 50/10...230/10) * 10)
+            } else {
+                alt = String(splitString[11])
+            }
         }
         
         //MARK: REQALT
-
-        if !splitString[8].contains("P") {
-            reqAlt = ""
-        } else if splitString[11] == "*" {
-            reqAlt = String(Int.random(in: 50/10...230/10) * 10)
-        } else {
-            reqAlt = String(splitString[11])
+        
+        if isProposal {
+            if splitString[11] == "*" {
+                reqAlt = String(Int.random(in: 50/10...230/10) * 10)
+            } else {
+                reqAlt = String(splitString[11])
+            }
         }
         
-        //MARK: ROUTE
+        //MARK: ARROW
         
-        route = String(splitString[12]
-                .replacingOccurrences(of: "..", with: " ")
-                .replacingOccurrences(of: ".",  with: " "))
+        if isProposal {
+            arrow = "↑"
+        } else if String(route.split(separator: " ").last!.suffix(3)) == posted.suffix(3) {
+            arrow = "↓"
+        }
+
+        //MARK: REST
+        
+        prev     = String(splitString[5])
+        prevTime = String(splitString[6])
+        next     = String(splitString[9])
+        nextTime = String(splitString[10])
+        route    = String(splitString[12]
+                            .replacingOccurrences(of: "..",  with: " ")
+                            .replacingOccurrences(of: ".",   with: " ")
+                            .replacingOccurrences(of: " / ", with: "./."))
     }
 }

@@ -60,19 +60,24 @@ struct Strip: View, Identifiable {
                         
                         //MARK: ROW 1
                         
-                        HStack {
-                            VStack(alignment: .leading) {
+                        ZStack {
+                            VStack {
+                                Text(flightPlan.postedTimeMin)
                                 HStack {
-                                    Spacer()
-                                    Text(flightPlan.postedTimeMin)
+                                    Text(flightPlan.postedTimeHour)
                                     Spacer()
                                 }
-                                Text(flightPlan.postedTimeHour)
+                            }
+                            
+                            HStack {
                                 Spacer()
+                                VStack {
+                                    Text(flightPlan.arrow)
+                                    Spacer()
+                                }
                             }
                         }
-                        .padding(.leading, 8)
-                        .padding(.top, 8)
+                        .padding(8)
                         .frame(height: fix.size.height * 0.55)
                         .border(Color(UIColor(named: "CustomColor")!))
                         .font(.title)
@@ -105,7 +110,7 @@ struct Strip: View, Identifiable {
                 //MARK: COLUMN 4
                 
                 HStack {
-                    VStack(alignment: .leading) {
+                    VStack {
                         Text(flightPlan.alt)
                             .font(.title)
                         Spacer()
@@ -135,7 +140,7 @@ struct Strip: View, Identifiable {
                 //MARK: COLUMN 6
                 
                 HStack {
-                    VStack(alignment: .leading) {
+                    VStack {
                         Text(flightPlan.route)
                         Spacer()
                     }
@@ -148,7 +153,7 @@ struct Strip: View, Identifiable {
                 //MARK: COLUMN 7
                 
                 HStack {
-                    VStack(alignment: .leading) {
+                    VStack {
                         Text(flightPlan.code)
                         Spacer()
                     }
@@ -166,9 +171,7 @@ struct Strip: View, Identifiable {
 
 struct Strip_Previews: PreviewProvider {
     static var previews: some View {
-        Strip(FlightPlan("FP * * * * - - 0M8 E1200 - - * KSHV..MLU..JAN..MEI..KMEI")!)
+        Strip(FlightPlan("FP * * * * - - 0M8 P1200 - - * KSHV..MLU..JAN..MEI..0M8")!)
             .previewDevice("iPad Pro (9.7-inch)")
-        
-        
     }
 }
