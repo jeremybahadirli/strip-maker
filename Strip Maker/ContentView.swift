@@ -18,7 +18,7 @@ struct ContentView: View {
             
             //MARK: TEXTFIELD
             
-            TextField("Enter flight plan message...", text: $flightPlanString)
+            TextField("FP [aid] [typ] [bcn] [tas] [prev] [prev time] [posted] [posted time] [next] [next time] [alt] [rte]", text: $flightPlanString)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.allCharacters)
                 .disableAutocorrection(true)
