@@ -5,8 +5,6 @@
 //  Created by Jeremy Bahadirli on 6/26/21.
 //
 
-import Foundation
-
 struct FlightPlan {
     
     var splitString:   [String.SubSequence]
