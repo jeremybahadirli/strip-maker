@@ -55,7 +55,7 @@ struct FlightPlan {
                             .replacingOccurrences(of: "..",  with: " ")
                             .replacingOccurrences(of: ".",   with: " ")
                             .replacingOccurrences(of: " / ", with: "./."))
-
+        
         //MARK: AID
         
         if splitString[1] == "*" {

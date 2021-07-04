@@ -118,4 +118,3 @@ struct ContentView_Previews: PreviewProvider {
             .previewDevice("iPad Pro (9.7-inch)")
     }
 }
-
