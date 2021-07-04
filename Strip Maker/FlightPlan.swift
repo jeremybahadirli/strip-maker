@@ -13,6 +13,7 @@ struct FlightPlan {
     
     var isProposal     = false
     
+    var cid            = ""
     var aid            = ""
     var type           = ""
     var code           = ""
@@ -28,8 +29,6 @@ struct FlightPlan {
     var reqAlt         = ""
     var route          = ""
     var arrow          = ""
-    
-    let cid            = String(format: "%03d", Int.random(in: 0...999))
     
     //MARK: INIT
     
@@ -57,6 +56,12 @@ struct FlightPlan {
                             .replacingOccurrences(of: "..",  with: " ")
                             .replacingOccurrences(of: ".",   with: " ")
                             .replacingOccurrences(of: " / ", with: "./."))
+        
+        //MARK: CID
+        
+        if flightPlanString.prefix(26) != "FP - - - - - - - - - - - -" {
+            cid = String(format: "%03d", Int.random(in: 0...999))
+        }
         
         //MARK: AID
         
@@ -139,7 +144,7 @@ struct FlightPlan {
         
         if isProposal {
             arrow = "↑"
-        } else if String(route.suffix(3)) == posted.suffix(3) {
+        } else if (String(route.suffix(3)) == posted.suffix(3) && posted != "") {
             arrow = "↓"
         }
     }
