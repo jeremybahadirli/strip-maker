@@ -7,6 +7,8 @@
 
 struct FlightPlan {
     
+    //MARK: DECLARATIONS
+    
     var splitString:   [String.SubSequence]
     
     var isProposal     = false
@@ -29,18 +31,20 @@ struct FlightPlan {
     
     let cid            = String(format: "%03d", Int.random(in: 0...999))
     
+    //MARK: INIT
     
-    init?(_ string: String) {
-        splitString = string.split(separator: " ")
-        if (splitString.count == 13 && splitString[0] == "FP") {
-            
-            for i in 1..<self.splitString.count {
-                if self.splitString[i] == "-" {
-                    self.splitString[i] = ""
-                }
-            }
-        } else {
+    init?(_ flightPlanString: String) {
+        
+        splitString = flightPlanString.split(separator: " ")
+        
+        if (splitString.count != 13 || splitString[0] != "FP") {
             return nil
+        }
+        
+        for i in 1..<self.splitString.count {
+            if self.splitString[i] == "-" {
+                self.splitString[i] = ""
+            }
         }
         
         isProposal = splitString[8].contains("P")
@@ -135,7 +139,7 @@ struct FlightPlan {
         
         if isProposal {
             arrow = "↑"
-        } else if String(route.split(separator: " ").last!.suffix(3)) == posted.suffix(3) {
+        } else if String(route.suffix(3)) == posted.suffix(3) {
             arrow = "↓"
         }
     }

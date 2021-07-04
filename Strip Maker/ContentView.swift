@@ -15,6 +15,9 @@ struct ContentView: View {
     var body: some View {
         
         VStack {
+            
+            //MARK: TEXTFIELD
+            
             TextField("Enter flight plan message...", text: $flightPlanString)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .autocapitalization(.allCharacters)
@@ -23,9 +26,11 @@ struct ContentView: View {
                 .padding()
             
             HStack {
-                
+                                
                 Spacer()
                 
+                //MARK: FP BUTTON
+
                 Button(action: {
                     flightPlanString.append("FP ")
                 }, label: {
@@ -41,6 +46,8 @@ struct ContentView: View {
                 })
                 .fixedSize(horizontal: true, vertical: true)
                 
+                //MARK: * BUTTON
+                
                 Button(action: {
                     flightPlanString.append("* ")
                 }, label: {
@@ -54,6 +61,8 @@ struct ContentView: View {
                     .foregroundColor(Color(UIColor(named: "CustomColor")!))
                 })
                 .fixedSize(horizontal: true, vertical: true)
+                
+                //MARK: – BUTTON
                 
                 Button(action: {
                     flightPlanString.append("- ")
@@ -71,6 +80,8 @@ struct ContentView: View {
                 
                 Spacer()
                 
+                //MARK: CREATE BUTTON
+
                 Button(action: {
                     if let flightPlan = FlightPlan(flightPlanString) {
                         strips.append(Strip(flightPlan))
@@ -89,6 +100,8 @@ struct ContentView: View {
                 
                 Spacer()
                 
+                //MARK: DELETE BUTTON
+
                 Button(action: {
                     strips = [Strip]()
                 }, label: {
@@ -105,6 +118,9 @@ struct ContentView: View {
                 
                 Spacer()
             }
+            
+            //MARK: STRIP LIST
+            
             List(strips, id: \.id) { strip in
                 strip
             }

@@ -173,7 +173,7 @@ struct Strip: View, Identifiable {
 
 struct Strip_Previews: PreviewProvider {
     static var previews: some View {
-        Strip(FlightPlan("FP * * * * - - 0M8 E1200 - - * KSHV..MLU..JAN..MEI..0M8")!)
+        Strip(FlightPlan("FP * * * * - - 0M8 E1200 - - * KSHV./.MLU..JAN..MEI..0M8")!)
             .previewDevice("iPad Pro (9.7-inch)")
     }
 }
