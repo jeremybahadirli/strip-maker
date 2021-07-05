@@ -9,9 +9,8 @@ struct FlightPlan {
     
     //MARK: DECLARATIONS
     
-    var splitString:   [String.SubSequence]
-    
-    var isProposal     = false
+    private var splitString: [String.SubSequence]
+    private var isProposal = false
     
     var cid            = ""
     var aid            = ""
